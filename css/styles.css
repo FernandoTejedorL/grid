@@ -30,71 +30,140 @@ ul {
 body {
   margin: 0;
   font-family: sans-serif;
+  background-color: grey;
 }
 
-.container{
+.container {
   display: grid;
-  width: 600px;
-  height: 600px;
-  background-color: aqua;
-  grid-template-columns:repeat(10, 50px);
-  grid-template-rows: 50px 50px 50px;
+  width: 100%;
+  height: 400px;
+  grid-template-columns: repeat(10, 50px);
+  /*Tembien se pueden poner en porcentajes que todos tienen que sumar 100%
+  existe en grid el 'fr' --> fracción. Automáticamente calcula el tamaño 
+  de cada una. la diferencia con los porcentajes. Se incluye el gap dentro
+  del hueco del grid. Aunque alteremos el orden en la visual, el elemento del html
+  (a efectos de lógica) sigue siendo el mismo*/
+  /*grid-template-rows: repeat(3, 50px);
+  gap: 20px;
+  justify-content: space-evenly;
+  /*justify-items y content: xxx; esto anula las posiciones de los elementos en el grid
+  align-content: center;*/
 }
 
-.box{
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: orange;
   color: black;
   font-size: 2rem;
   border: solid 1px black;
 }
 
-.one{
+.one {
   grid-column: 1/4;
   grid-row: 1/2;
+  background-color: yellow;
 }
 
-.two{
-  grid-column: 4/10;
+.two {
+  grid-column: 4/11;
   grid-row: 1/2;
+  background-color: purple;
 }
 
-.three{
+.three {
   grid-column: 1/2;
   grid-row: 2/3;
+  background-color: blue;
 }
 
-.four{
+.four {
   grid-column: 2/5;
   grid-row: 2/3;
+  background-color: palevioletred;
 }
 
-.five{
+.five {
   grid-column: 5/6;
   grid-row: 2/3;
+  background-color: aqua;
 }
 
-.six{
-  grid-column: 6/10;
+.six {
+  grid-column: 6/11;
   grid-row: 2/3;
+  background-color: pink;
 }
 
-.seven{
+.seven {
   grid-column: 1/4;
   grid-row: 3/4;
+  background-color: green;
 }
 
-.eight{
+.eight {
   grid-column: 4/6;
   grid-row: 3/4;
+  background-color: pink;
 }
 
-.nine{
+.nine {
   grid-column: 6/7;
   grid-row: 3/4;
+  background-color: aquamarine;
 }
 
-.ten{
-  grid-column: 7/10;
+.ten {
+  grid-column: 7/11;
   grid-row: 3/4;
+  background-color: red;
 }
 
+/*menu responsive*/
+.menu-icon {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  z-index: 1;
+}
+
+@media screen and (width>768px) {
+  .menu-icon {
+    display: none;
+  }
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  width: 100%;
+  height: 100vh;
+  background-color: pink;
+  padding-top: 50px;
+  translate: -100%;
+  transition: translate 0.3s;
+}
+
+.menu-show {
+  translate: 0;
+}
+
+@media screen and (width>768px) {
+  .menu {
+    flex-direction: row;
+    width: 400px;
+    height: 200px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.menu-items {
+  padding: 10px;
+  background-color: #fff;
+}
